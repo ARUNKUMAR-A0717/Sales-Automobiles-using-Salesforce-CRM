@@ -4,6 +4,7 @@ OVERVIEW:
 This project leverages Salesforce CRM to enhance the sales process for automobile dealerships. By implementing features such as lead management, inventory tracking, and automated customer follow-ups, the system helps sales teams operate more efficiently and maintain high levels of customer satisfaction. With capabilities for customer profiling, targeted marketing, and real-time inventory updates, this CRM system is tailored to support automotive sales, build stronger customer relationships, and drive growth.
 
 PROJECT STRUCTURE:
+
 Salesforce: Core CRM functionalities utilized within Salesforce.
 Object: Custom objects set up to manage various aspects of automotive sales, such as leads, vehicles, and customer data.
 Tabs: User interface tabs for easy navigation between different modules, including Leads, Inventory, and Customers.
@@ -17,6 +18,7 @@ Reports: Pre-configured reports that provide insights into sales performance, le
 Dashboard: A comprehensive dashboard for visualizing key metrics, including sales trends, forecasted demand, and customer engagement statistics.
 
 KEY FEATURES:
+
 Lead Management: Track and manage leads from initial contact to conversion.
 Inventory Tracking: Real-time updates on vehicle availability, specifications, and status.
 Customer Profiling: Build detailed profiles for personalized marketing and targeted campaigns.
@@ -27,6 +29,7 @@ DEPLOY TO SALESFORCE:
 Use Salesforce CLI to push the project into your Salesforce development environment.
 
 USAGE:
+
 Accessing Modules: Use the Lightning App tabs to navigate between Leads, Inventory, Reports, and other key sections.
 Custom Triggers: Triggers manage tasks like inventory updates and automated customer notifications.
 Reports and Dashboard: View sales analytics and performance metrics in the dashboard to make data-driven decisions.
