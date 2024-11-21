@@ -7,6 +7,7 @@ This project leverages Salesforce CRM to enhance the sales process for automobil
 PROJECT STRUCTURE:
 
 Salesforce: Core CRM functionalities utilized within Salesforce.
+
 Object: Custom objects set up to manage various aspects of automotive sales, such as leads, vehicles, and customer data.
 Tabs: User interface tabs for easy navigation between different modules, including Leads, Inventory, and Customers.
 The Lightning App: Custom Lightning app setup for a user-friendly interface, improving usability for sales teams.
