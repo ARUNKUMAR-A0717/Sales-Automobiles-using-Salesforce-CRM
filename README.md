@@ -1,6 +1,7 @@
 SALES AUTOMOBILES USING SALESFORCE CRM
 
 OVERVIEW:
+
 This project leverages Salesforce CRM to enhance the sales process for automobile dealerships. By implementing features such as lead management, inventory tracking, and automated customer follow-ups, the system helps sales teams operate more efficiently and maintain high levels of customer satisfaction. With capabilities for customer profiling, targeted marketing, and real-time inventory updates, this CRM system is tailored to support automotive sales, build stronger customer relationships, and drive growth.
 
 PROJECT STRUCTURE:
