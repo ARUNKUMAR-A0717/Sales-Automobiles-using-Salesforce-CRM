@@ -1,0 +1,33 @@
+trigger OpportunityTrigger on Opportunity (before update, After Update) {
+
+    if(trigger.isbefore && trigger.isUpdate){
+
+          OpportunityHandlerClass.opportunityAutomobileQuantity(trigger.new, trigger.oldMap);
+
+    }
+
+    IF(trigger.isafter && trigger.isupdate){
+
+        InvoiceCreation.OpportunityClosedwonInvoiceGeneration(trigger.new, trigger.oldMap);
+
+    }
+
+}
+
+trigger OpportunityTrigger on Opportunity (before update, After Update) {
+
+    if(trigger.isbefore && trigger.isUpdate){
+
+          OpportunityHandlerClass.opportunityAutomobileQuantity(trigger.new, trigger.oldMap);
+
+        ContactRoleCheck.CheckcontactRoleonOpportunity(trigger.new, trigger.oldMap);
+
+    }
+
+    IF(trigger.isafter && trigger.isupdate){
+
+        InvoiceCreation.OpportunityClosedwonInvoiceGeneration(trigger.new, trigger.oldMap);
+
+    }
+
+}
