@@ -1,0 +1,69 @@
+public class OpportunityHandlerClass {
+
+
+
+    public static void opportunityAutomobileQuantity(List<Opportunity> LstOpportunity, Map<Id,Opportunity> OldMapOpportunity){
+
+        set<Id> opportunityIds = new set<Id>();
+
+        for(Opportunity opp : LstOpportunity){
+
+            if(opp.StageName =='Closed Won' ){
+
+                opportunityIds.add(opp.Id);
+
+            }
+
+        }
+
+        Map<Id,Opportunity_Automobile_c> lstOpportunityAutomobile =new Map<Id,Opportunity_Automobilec>([SELECT Id, Opportunityc, Automobilec, Quantityc, Unit_Pricec, Total_Pricec FROM Opportunity_Automobilec Where Opportunity_c IN: opportunityIds]);
+
+
+
+        set<Id> AutoInformationIds = new set<Id>();
+
+        for(Opportunity_Automobile__c OppAuto: lstOpportunityAutomobile.values()){
+
+            if(OppAuto.Automobile__c != null){
+
+                AutoInformationIds.add(OppAuto.Automobile__c);
+
+            }
+
+        }
+
+        List<Automobile_Information_c> lstAutomobileInfomation = new List<Automobile_Information_c>();
+
+        Map<Id,Automobile_Information_c> MapAutomobileInformation = New Map<Id,Automobile_Informationc>([SELECT Quantityc, Pricec, Name, Id FROM Automobile_Information_c WHERE Id IN: AutoInformationIds]);
+
+        For(Opportunity_Automobile__c AutoOpp : lstOpportunityAutomobile.Values()){
+
+            decimal num = 0;
+
+            if(AutoOpp.Automobile_c == MapAutomobileInformation.get(AutoOpp.Automobilec).Id && OldMapOpportunity.get(AutoOpp.Opportunity_c).stagename != 'Closed Won'){
+
+
+
+                num = MapAutomobileInformation.get(AutoOpp.Automobile_c).Quantityc- AutoOpp.Quantity_c;
+
+                MapAutomobileInformation.get(AutoOpp.Automobile_c).quantity_c = num;
+
+                lstAutomobileInfomation.add(MapAutomobileInformation.get(AutoOpp.Automobile__c));
+
+            }
+
+        }
+
+        If(!lstAutomobileInfomation.IsEmpty()){
+
+            update lstAutomobileInfomation;
+
+        }
+
+
+
+
+
+    }
+
+}
