@@ -1,0 +1,15 @@
+public class DeleteClosedLostOpportunities implements Schedulable{
+
+    public static void execute(SchedulableContext sc){
+
+        List<Opportunity> getLostOpportunities = [SELECT Id, Name From Opportunity Where StageName =: 'Closed Lost' LIMIT 50000];
+
+        if(!getLostOpportunities.IsEmpty()){
+
+            Delete getLostOpportunities;
+
+        }
+
+    }
+
+}
