@@ -1,0 +1,33 @@
+public class OpportunityAutomobileHandler {
+
+    public static void quantityErrorOnAutomobileInformation(List<Opportunity_Automobile__c> lstOpportunityAutomobile){
+
+        set<Id> AutomobileIds = new Set<Id>();
+
+        For(Opportunity_Automobile__c OppAutomobile : lstOpportunityAutomobile){
+
+            if(oppAutomobile.Automobile__c != null){
+
+                AutomobileIds.add(oppAutomobile.Automobile__c);
+
+            }
+
+        }
+
+        Map<Id,Automobile_Information_c> lstAutomobileInformation = new map<Id,Automobile_Informationc>([SELECT Id, CreatedById, Quantityc, Pricec FROM Automobile_Information_c WHERE Id IN: AutomobileIds]);
+
+        For(Opportunity_Automobile__c OppAutomobile : lstOpportunityAutomobile){
+
+            If(OppAutomobile.Automobile_c == lstAutomobileInformation.get(OppAutomobile.Automobilec).Id && lstAutomobileInformation.get(OppAutomobile.Automobilec).Quantityc < OppAutomobile.Quantity_c){
+
+                OppAutomobile.addError('the Number of Automobile u want are not Available !! the Automobile are Available Count is ' + lstAutomobileInformation.get(OppAutomobile.Automobile_c).Quantity_c );
+
+            } 
+
+        }
+
+    }
+
+
+
+}
