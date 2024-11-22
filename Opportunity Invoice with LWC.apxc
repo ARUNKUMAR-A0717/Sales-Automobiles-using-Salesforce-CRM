@@ -1,0 +1,12 @@
+public class OpportunityInvoiceswithLWC {
+
+    @AuraEnabled(cacheable=true)
+
+    public static List<Invoice__c> getInvoices(string OpportunityId){
+
+        return [SELECT Id, Quantity_c, Purchase_Datec, Opportunityc, Unit_Pricec, Total_Pricec, Name FROM Invoicec WHERE Opportunity_c =: OpportunityId];
+
+    }
+
+
+}
