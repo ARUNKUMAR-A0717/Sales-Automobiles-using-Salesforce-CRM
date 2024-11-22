@@ -1,1 +1,23 @@
-fg
+public class ContactRoleCheck {
+
+ public static void CheckcontactRoleonOpportunity(List<Opportunity> lstOpportunity, Map<Id,Opportunity>OldMapOpportunity){
+
+        List<OpportunityContactRole> lstContactRole = [SELECT Id From OpportunityContactRole WHERE OpportunityId IN: OldMapOpportunity.keyset()];
+
+        For(Opportunity opp : lstOpportunity){
+
+            if(Opp.StageName == 'Closed Won' && OldMapOpportunity.get(opp.Id).StageName != opp.StageName){
+
+                If(lstContactRole.isempty()){
+
+                    opp.adderror('Please add contact Role on opportunity whenever Opportunity is Going to Closed Won.');
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
