@@ -1,0 +1,9 @@
+trigger OpportunityTrigger on Opportunity (before update, After Update) {
+
+    if(trigger.isbefore && trigger.isUpdate){
+
+          OpportunityHandlerClass.opportunityAutomobileQuantity(trigger.new, trigger.oldMap);
+
+    }
+
+}
